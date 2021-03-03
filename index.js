@@ -1,6 +1,5 @@
 const runApp = require("./backend/app.js");
 
-//TODO set this dynamically
-const port = 80
+const port = process.env.PORT || 3000;
 
 runApp(port)
