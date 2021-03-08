@@ -25,8 +25,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: "./frontend/index.js",
-
+  entry: {
+    main: ["./frontend/index.js", "./frontend/scss/main.scss"],
+  },
   plugins: [
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({ filename: "main.[contenthash].css" }),
@@ -35,11 +36,11 @@ module.exports = {
     }),
   ],
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, "dist"),
     compress: true,
     port: 9000,
     proxy: {
-      '/api': 'http://localhost:3000',
+      "/api": "http://localhost:3000",
     },
   },
 
